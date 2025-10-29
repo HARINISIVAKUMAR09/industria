@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ultrasonic Distance</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    h1 { color: #0077cc; }
+    .value { font-size: 48px; color: #333; }
+  </style>
+  <script>
+    async function getDistance() {
+      const res = await fetch("/distance");
+      const data = await res.text();
+      document.getElementById("distance").textContent = data + " cm";
+    }
+    setInterval(getDistance, 1000);
+  </script>
+</head>
+<body>
+  <h1>Ultrasonic Sensor Distance</h1>
+  <div class="value" id="distance">--</div>
+</body>
+</html>
